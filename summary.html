@@ -1,124 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>3225 Michigan Blvd – Inspection Summary</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inspection Summary for Jerry</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .accordion-content {
       display: none;
     }
+
     .accordion-content.active {
       display: block;
     }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans">
 
-  <!-- Header -->
-  <header class="bg-slate-800 text-white shadow">
-    <div class="max-w-5xl mx-auto py-6 px-4">
-      <h1 class="text-3xl font-bold">3225 Michigan Blvd – Summary for Jerry</h1>
-      <p class="text-slate-300 mt-1">Review of Inspection Findings by Priority</p>
-    </div>
-  </header>
+<body class="bg-gray-50 font-sans text-gray-800">
+  <div class="max-w-3xl mx-auto py-10 px-6">
+    <h1 class="text-3xl font-bold mb-2">Jerry, here's the inspection summary for [Property Address]</h1>
+    <p class="mb-6 text-gray-700">We went through your inspection report and categorized everything to help you focus your attention. Click on each category below to expand. Only one will be open at a time.</p>
 
-  <!-- Intro -->
-  <main class="max-w-4xl mx-auto mt-8 px-4">
-    <div class="bg-white rounded-lg shadow p-6 mb-8 border-l-4 border-indigo-500">
-      <p class="text-lg leading-relaxed">
-        Hi Jerry,<br><br>
-        We took the full inspection report for <strong>3225 N Michigan Blvd</strong> and sorted everything into four categories to help you get a clearer picture of what matters most right now — and what doesn’t.<br><br>
-        To view the details, just click each tab below. Only one section will open at a time to keep things clean.
-      </p>
-    </div>
-
-    <!-- Accordion Sections -->
-    <div class="space-y-6">
-
+    <!-- Accordion Start -->
+    <div class="space-y-4">
       <!-- Urgent -->
-      <section>
-        <button class="accordion-header w-full bg-red-50 hover:bg-red-100 text-red-800 font-semibold px-5 py-4 rounded-lg border border-red-200 shadow-sm transition">
-          🔴 Urgent Issues
-        </button>
-        <div class="accordion-content bg-white border-l-4 border-red-400 mt-2 px-6 py-4 rounded-lg shadow-inner">
-          <ul class="list-disc ml-5 space-y-1">
-            <li>Rubber roof ponding / soft spots / loose seams</li>
-            <li>Clogged drains and water pooling at scuppers</li>
-            <li>Exposed electrical issues (multi-tap, grounding)</li>
-            <li>Obsolete fuse panels and outdated service entry</li>
-            <li>Condensate drain discharging directly onto roof</li>
-            <li>Boiler: active leak, corrosion, needs servicing</li>
-            <li>Fireplace: loose mortar, gaps, draft concerns</li>
-            <li>Double keyed deadbolts (safety risk)</li>
-            <li>Potential asbestos on wrapped basement pipes</li>
+      <div>
+        <button onclick="toggleAccordion('urgent')" class="w-full text-left p-4 bg-red-600 hover:bg-red-700 text-white rounded-md shadow">Urgent</button>
+        <div id="urgent" class="accordion-content bg-red-100 border border-red-300 rounded-md p-4">
+          <ul class="list-disc ml-6">
+            <li>Gas leak near meter</li>
+            <li>Water intrusion in basement</li>
+            <li>Active roof leaks</li>
           </ul>
         </div>
-      </section>
+      </div>
 
-      <!-- Important -->
-      <section>
-        <button class="accordion-header w-full bg-yellow-50 hover:bg-yellow-100 text-yellow-800 font-semibold px-5 py-4 rounded-lg border border-yellow-200 shadow-sm transition">
-          🟡 Important, Not Urgent
-        </button>
-        <div class="accordion-content bg-white border-l-4 border-yellow-400 mt-2 px-6 py-4 rounded-lg shadow-inner">
-          <ul class="list-disc ml-5 space-y-1">
-            <li>Flashing condition unknown / likely aged</li>
-            <li>Basement moisture with unknown drain tile</li>
-            <li>Older windows: some cracked, some won’t open</li>
-            <li>Deck lacks proper flashing / rail gaps</li>
-            <li>Low insulation / poor attic ventilation</li>
-            <li>Damaged grout and cracked tile in bathroom</li>
-            <li>No working smoke or CO detectors in place</li>
+      <!-- Important but not urgent -->
+      <div>
+        <button onclick="toggleAccordion('important')" class="w-full text-left p-4 bg-yellow-600 hover:bg-yellow-700 text-white rounded-md shadow">Important but not Urgent</button>
+        <div id="important" class="accordion-content bg-yellow-100 border border-yellow-300 rounded-md p-4">
+          <ul class="list-disc ml-6">
+            <li>Double-keyed lock (fire safety issue)</li>
+            <li>Fireplace maintenance and possible flue obstruction</li>
+            <li>Loose handrails</li>
+            <li>Electrical panel labeling needed</li>
           </ul>
         </div>
-      </section>
+      </div>
 
-      <!-- Monitor -->
-      <section>
-        <button class="accordion-header w-full bg-sky-50 hover:bg-sky-100 text-sky-800 font-semibold px-5 py-4 rounded-lg border border-sky-200 shadow-sm transition">
-          🔵 Keep an Eye on These
-        </button>
-        <div class="accordion-content bg-white border-l-4 border-sky-400 mt-2 px-6 py-4 rounded-lg shadow-inner">
-          <ul class="list-disc ml-5 space-y-1">
-            <li>Minor interior cosmetic damage</li>
-            <li>Aging appliances — currently functional</li>
-            <li>Wear on cabinets, flooring, peeling paint</li>
+      <!-- Keep an eye on it -->
+      <div>
+        <button onclick="toggleAccordion('watch')" class="w-full text-left p-4 bg-blue-600 hover:bg-blue-700 text-white rounded-md shadow">Keep an Eye on It</button>
+        <div id="watch" class="accordion-content bg-blue-100 border border-blue-300 rounded-md p-4">
+          <ul class="list-disc ml-6">
+            <li>Cracks in foundation (not currently active)</li>
+            <li>Minor plumbing corrosion</li>
+            <li>Potential asbestos (not currently disturbed)</li>
           </ul>
         </div>
-      </section>
+      </div>
 
-      <!-- Low Concern -->
-      <section>
-        <button class="accordion-header w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold px-5 py-4 rounded-lg border border-emerald-200 shadow-sm transition">
-          🟢 No Real Concern
-        </button>
-        <div class="accordion-content bg-white border-l-4 border-emerald-400 mt-2 px-6 py-4 rounded-lg shadow-inner">
-          <ul class="list-disc ml-5 space-y-1">
-            <li>Inactive knob & tube wiring — no signs of recent use</li>
+      <!-- Don't worry about it -->
+      <div>
+        <button onclick="toggleAccordion('ignore')" class="w-full text-left p-4 bg-gray-600 hover:bg-gray-700 text-white rounded-md shadow">Don't Worry About It</button>
+        <div id="ignore" class="accordion-content bg-gray-100 border border-gray-300 rounded-md p-4">
+          <ul class="list-disc ml-6">
+            <li>Hairline drywall cracks</li>
+            <li>Normal wear on roof shingles</li>
+            <li>Outdated but functional thermostat</li>
           </ul>
         </div>
-      </section>
-
+      </div>
     </div>
-  </main>
+    <!-- Accordion End -->
 
-  <!-- Accordion Script -->
+    <p class="mt-10 text-gray-700">If you'd like to talk through any of these items or explore next steps, feel free to reach out to us — Andy and Flavia.</p>
+  </div>
+
   <script>
-    const headers = document.querySelectorAll('.accordion-header');
-    headers.forEach(header => {
-      header.addEventListener('click', () => {
-        const all = document.querySelectorAll('.accordion-content');
-        all.forEach(section => {
-          if (section !== header.nextElementSibling) {
-            section.classList.remove('active');
-          }
-        });
-        header.nextElementSibling.classList.toggle('active');
+    function toggleAccordion(id) {
+      const all = document.querySelectorAll('.accordion-content');
+      all.forEach(section => {
+        if (section.id === id) {
+          section.classList.toggle('active');
+        } else {
+          section.classList.remove('active');
+        }
       });
-    });
+    }
   </script>
-
 </body>
+
 </html>
