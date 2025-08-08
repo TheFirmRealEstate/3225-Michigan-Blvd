@@ -28,7 +28,7 @@
 
 <body class="bg-gray-50 font-sans text-gray-800">
   <div class="max-w-3xl mx-auto py-10 px-6">
-    <h1 class="text-3xl font-bold mb-2">Jerry, here's the inspection summary for [Property Address]</h1>
+    <h1 class="text-3xl font-bold mb-2">Jerry, here's the inspection summary for 3225 Michigan Blvd</h1>
     <p class="mb-6 text-gray-700">We went through your inspection report and categorized everything to help you focus your attention. Click on each category below to expand. Only one will be open at a time.</p>
 
     <!-- Accordion Start -->
@@ -38,18 +38,12 @@
         <button onclick="toggleAccordion('urgent')" class="w-full text-left p-4 bg-red-600 hover:bg-red-700 text-white rounded-md shadow">Urgent</button>
         <div id="urgent" class="accordion-content bg-red-100 border border-red-300 rounded-md p-4">
           <ul class="list-disc ml-6">
-            <li onclick="toggleAction(this)">
-              Gas leak near meter
-              <div class="action-box hidden">Contact a licensed plumber or gas utility immediately. This should be addressed before occupancy.</div>
-            </li>
-            <li onclick="toggleAction(this)">
-              Water intrusion in basement
-              <div class="action-box hidden">Have a waterproofing contractor assess the source. Consider grading, gutters, and interior sealant options.</div>
-            </li>
-            <li onclick="toggleAction(this)">
-              Active roof leaks
-              <div class="action-box hidden">Schedule a roofing contractor to inspect and repair immediately to prevent interior damage.</div>
-            </li>
+            <li onclick="toggleAction(this)">Gas leak near meter<div class="action-box hidden">Call your gas utility or licensed plumber immediately to fix the leak. Do not delay.</div></li>
+            <li onclick="toggleAction(this)">Roof leaks and poor drainage<div class="action-box hidden">Hire a roofing specialist to address active leaks and improve drainage with possible taper or overlay.</div></li>
+            <li onclick="toggleAction(this)">Condensate drain discharges onto roof<div class="action-box hidden">Have an HVAC tech reroute the drain to an approved discharge location.</div></li>
+            <li onclick="toggleAction(this)">Corroded flue piping in attic<div class="action-box hidden">Hire a qualified HVAC technician to replace corroded components before furnace operation continues.</div></li>
+            <li onclick="toggleAction(this)">Live wires in garage<div class="action-box hidden">Contact an electrician to safely terminate or repair exposed wiring.</div></li>
+            <li onclick="toggleAction(this)">Plumbing leak in crawlspace<div class="action-box hidden">Have a licensed plumber repair the leaking drain line to avoid further damage.</div></li>
           </ul>
         </div>
       </div>
@@ -59,10 +53,12 @@
         <button onclick="toggleAccordion('important')" class="w-full text-left p-4 bg-yellow-600 hover:bg-yellow-700 text-white rounded-md shadow">Important but not Urgent</button>
         <div id="important" class="accordion-content bg-yellow-100 border border-yellow-300 rounded-md p-4">
           <ul class="list-disc ml-6">
-            <li>Double-keyed lock (fire safety issue)</li>
-            <li>Fireplace maintenance and possible flue obstruction</li>
-            <li>Loose handrails</li>
-            <li>Electrical panel labeling needed</li>
+            <li>Double-keyed lock on egress door (replace with thumbturn for fire safety)</li>
+            <li>Fireplace needs cleaning; possible flue obstruction</li>
+            <li>Loose handrails throughout home</li>
+            <li>Unlabeled electrical panel breakers</li>
+            <li>Insulation insufficient in attic spaces</li>
+            <li>Brick spalling on window sills and foundation areas</li>
           </ul>
         </div>
       </div>
@@ -72,9 +68,10 @@
         <button onclick="toggleAccordion('watch')" class="w-full text-left p-4 bg-blue-600 hover:bg-blue-700 text-white rounded-md shadow">Keep an Eye on It</button>
         <div id="watch" class="accordion-content bg-blue-100 border border-blue-300 rounded-md p-4">
           <ul class="list-disc ml-6">
-            <li>Cracks in foundation (not currently active)</li>
-            <li>Minor plumbing corrosion</li>
-            <li>Potential asbestos (not currently disturbed)</li>
+            <li>Potential asbestos on pipe wrap (safe if undisturbed)</li>
+            <li>Minor foundation cracks, no current movement</li>
+            <li>Garage slab settling crack (cosmetic)</li>
+            <li>Bathrooms missing GFCI protection</li>
           </ul>
         </div>
       </div>
@@ -84,9 +81,10 @@
         <button onclick="toggleAccordion('ignore')" class="w-full text-left p-4 bg-gray-600 hover:bg-gray-700 text-white rounded-md shadow">Don't Worry About It</button>
         <div id="ignore" class="accordion-content bg-gray-100 border border-gray-300 rounded-md p-4">
           <ul class="list-disc ml-6">
-            <li>Hairline drywall cracks</li>
-            <li>Normal wear on roof shingles</li>
-            <li>Outdated but functional thermostat</li>
+            <li>Hairline drywall cracks in living areas</li>
+            <li>General wear on roof membrane, no active leaks in those spots</li>
+            <li>Outdated but operational thermostat</li>
+            <li>Old but functional foundation joist repairs</li>
           </ul>
         </div>
       </div>
@@ -122,4 +120,3 @@
 </body>
 
 </html>
-
