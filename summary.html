@@ -14,6 +14,15 @@
     .accordion-content.active {
       display: block;
     }
+
+    .action-box {
+      font-size: 0.9rem;
+      background-color: #fee2e2;
+      border-left: 4px solid #b91c1c;
+      padding: 0.5rem 1rem;
+      margin-top: 0.25rem;
+      border-radius: 0.25rem;
+    }
   </style>
 </head>
 
@@ -29,9 +38,18 @@
         <button onclick="toggleAccordion('urgent')" class="w-full text-left p-4 bg-red-600 hover:bg-red-700 text-white rounded-md shadow">Urgent</button>
         <div id="urgent" class="accordion-content bg-red-100 border border-red-300 rounded-md p-4">
           <ul class="list-disc ml-6">
-            <li>Gas leak near meter</li>
-            <li>Water intrusion in basement</li>
-            <li>Active roof leaks</li>
+            <li onclick="toggleAction(this)">
+              Gas leak near meter
+              <div class="action-box hidden">Contact a licensed plumber or gas utility immediately. This should be addressed before occupancy.</div>
+            </li>
+            <li onclick="toggleAction(this)">
+              Water intrusion in basement
+              <div class="action-box hidden">Have a waterproofing contractor assess the source. Consider grading, gutters, and interior sealant options.</div>
+            </li>
+            <li onclick="toggleAction(this)">
+              Active roof leaks
+              <div class="action-box hidden">Schedule a roofing contractor to inspect and repair immediately to prevent interior damage.</div>
+            </li>
           </ul>
         </div>
       </div>
@@ -89,7 +107,19 @@
         }
       });
     }
+
+    function toggleAction(listItem) {
+      const box = listItem.querySelector('.action-box');
+      const allBoxes = document.querySelectorAll('.action-box');
+      allBoxes.forEach(b => {
+        if (b !== box) b.classList.add('hidden');
+      });
+      if (box) {
+        box.classList.toggle('hidden');
+      }
+    }
   </script>
 </body>
 
 </html>
+
