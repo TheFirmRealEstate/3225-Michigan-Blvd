@@ -3,47 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>3225 Michigan Blvd, Racine WI — Client Hub</title>
+  <title>Jerry and Kim's Real Estate Dashboard</title>
   <style>
-    :root{
-      --bg:#0b1020; --bg2:#070b16; --card:#0f1628; --ink:#ecf0f6; --muted:#9fb1d1; --line:#223354; --accent:#7dc4ff; --accent2:#6ee7b7; --pill:#12203a;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0; font:16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial; color:var(--ink); background:radial-gradient(1200px 600px at 20% -10%, #11203a, transparent), linear-gradient(180deg,var(--bg),var(--bg2)); -webkit-font-smoothing:antialiased}
-    .wrap{max-width:1100px; margin:28px auto; padding:0 16px}
-    header{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin:0 0 18px}
-    .title{font-size:clamp(24px,4vw,36px); font-weight:900; letter-spacing:.2px; line-height:1.1}
-    .sub{opacity:.85}
-    .btn{appearance:none; border:1px solid var(--line); background:linear-gradient(180deg,#0c1426,#0b1222); color:var(--ink); padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:700}
-    .btn:hover{border-color:var(--accent)}
-    .tabs{display:flex; gap:8px; flex-wrap:wrap}
-    .tab{border:1px solid var(--line); background:#0b1222; color:var(--ink); padding:10px 14px; border-radius:999px; cursor:pointer; font-weight:700}
-    .tab[aria-selected="true"], .tab:hover{border-color:var(--accent); box-shadow:0 0 0 2px rgba(125,196,255,.15) inset}
-    .card{background:linear-gradient(180deg,var(--card),#0b1220); border:1px solid var(--line); border-radius:18px; padding:18px}
-    .panels{margin-top:12px}
-    .panel{display:none}
-    .panel.active{display:block}
-    h2{margin:0 0 8px; font-size:20px}
-    h3{margin:10px 0 6px; font-size:16px; opacity:.95}
-    .pill{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:var(--pill); border:1px solid var(--line); color:var(--muted); font-size:12px}
-    .accordion{border-top:1px solid var(--line)}
-    .accordion-item{border-bottom:1px solid var(--line)}
-    .accordion-header{cursor:pointer; padding:14px; font-weight:700; background:#0b1324; display:flex; justify-content:space-between; align-items:center;}
-    .accordion-header:hover{background:#101a34}
-    .accordion-content{display:none; padding:14px; background:#0c1528;}
-    .accordion-item.active .accordion-content{display:block}
-    .accordion-item.active .accordion-header{color:var(--accent)}
-    a.link{color:var(--accent); text-decoration:none; font-weight:700}
-    a.link:hover{text-decoration:underline}
+    :root{--bg:#0b1020;--bg2:#070b16;--card:#0f1628;--ink:#ecf0f6;--muted:#9fb1d1;--line:#223354;--accent:#7dc4ff;--accent2:#6ee7b7;--pill:#12203a;}
+    *{box-sizing:border-box}html,body{height:100%}body{margin:0;font:16px/1.55 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial;color:var(--ink);background:radial-gradient(1200px 600px at 20% -10%,#11203a,transparent),linear-gradient(180deg,var(--bg),var(--bg2));-webkit-font-smoothing:antialiased}
+    .wrap{max-width:1100px;margin:28px auto;padding:0 16px}header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 18px}.title{font-size:clamp(24px,4vw,36px);font-weight:900;letter-spacing:.2px;line-height:1.1}.sub{opacity:.85}.btn{appearance:none;border:1px solid var(--line);background:linear-gradient(180deg,#0c1426,#0b1222);color:var(--ink);padding:10px 14px;border-radius:12px;cursor:pointer;font-weight:700}.btn:hover{border-color:var(--accent)}.tabs{display:flex;gap:8px;flex-wrap:wrap}.tab{border:1px solid var(--line);background:#0b1222;color:var(--ink);padding:10px 14px;border-radius:999px;cursor:pointer;font-weight:700}.tab[aria-selected="true"],.tab:hover{border-color:var(--accent);box-shadow:0 0 0 2px rgba(125,196,255,.15) inset}.card{background:linear-gradient(180deg,var(--card),#0b1220);border:1px solid var(--line);border-radius:18px;padding:18px}.panels{margin-top:12px}.panel{display:none}.panel.active{display:block}h2{margin:0 0 8px;font-size:20px}h3{margin:10px 0 6px;font-size:16px;opacity:.95}.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:var(--pill);border:1px solid var(--line);color:var(--muted);font-size:12px}.accordion{border-top:1px solid var(--line)}.accordion-item{border-bottom:1px solid var(--line)}.accordion-header{cursor:pointer;padding:14px;font-weight:700;background:#0b1324;display:flex;justify-content:space-between;align-items:center}.accordion-header:hover{background:#101a34}.accordion-content{display:none;padding:14px;background:#0c1528}.accordion-item.active .accordion-content{display:block}.accordion-item.active .accordion-header{color:var(--accent)}a.link{color:var(--accent);text-decoration:none;font-weight:700}a.link:hover{text-decoration:underline}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <div>
-        <div class="title">3225 Michigan Blvd — Client Hub</div>
-        <div class="sub">For Jerry & Kim • Presented by Andy & Flavia (Coldwell Banker Realty)</div>
+        <div class="title">Jerry and Kim's Real Estate Dashboard</div>
+        <div class="sub">Presented by Andy & Flavia (Coldwell Banker Realty)</div>
       </div>
       <div>
         <button class="btn" onclick="window.print()">Print</button>
@@ -57,133 +29,28 @@
         <button class="tab" aria-selected="false" data-tab="sellers">Tasks — Jerry & Kim</button>
         <button class="tab" aria-selected="false" data-tab="team">Tasks — Andy & Flavia</button>
         <button class="tab" aria-selected="false" data-tab="info">Information</button>
+        <button class="tab" aria-selected="false" data-tab="purchase">Next Purchase</button>
       </div>
 
       <div class="panels">
-        <section id="questions" class="panel active" tabindex="0">
-          <h2>Questions to Confirm</h2>
-          <div class="list" id="qList"></div>
-        </section>
+        <section id="questions" class="panel active" tabindex="0"><h2>Questions to Confirm</h2><div class="list" id="qList"></div></section>
+        <section id="timeline" class="panel" tabindex="0"><h2>Timeline</h2><div class="timeline" id="tl"></div><p class="note">This suggested schedule will guide us through the listing launch.</p></section>
+        <section id="sellers" class="panel" tabindex="0"><h2>Task List — Jerry & Kim</h2><div class="list" id="sellerList"></div></section>
+        <section id="team" class="panel" tabindex="0"><h2>Task List — Andy & Flavia</h2><div class="list" id="teamList"></div></section>
+        <section id="info" class="panel" tabindex="0"><h2>Information</h2><div class="accordion" id="accordionInfo"><div class="accordion-item"><div class="accordion-header">Homesite Inspection Benefits</div><div class="accordion-content"><p><strong>125 Day Warranty:</strong> Covers repairs to items found to be in good working condition at the time of inspection for 125 days.</p><p><strong>5 Year Platinum Roof Protection Plan:</strong> Protects against new roof leaks for five years after the inspection. After deductible, repair costs are covered up to $3,000.</p><p><strong>Mold Safe Guarantee:</strong> Covers remediation up to $2,000 for mold not present at inspection, discovered within 90 days.</p><p><strong>SewerGard Protection:</strong> Covers sewer and water line collapses up to $4,000 for 90 days after the inspection.</p><p class="note">Verify specific terms and eligibility directly with Homesite, Inc.</p></div></div><div class="accordion-item"><div class="accordion-header">Commission Structure</div><div class="accordion-content"><p>Coldwell Banker Realty’s commission for the listing side is <strong>3.6% of the final sale price plus a $495 brokerage fee.</strong></p><p>Buyers who are represented by their own agent must <strong>specifically request</strong> any payment to their agent as part of the offer they submit. Any buyer-agent compensation, if offered, would be included within the total contract terms negotiated between buyer and seller.</p><p>This structure ensures that the seller’s obligations are clear and limited to the listing-side brokerage agreement unless otherwise agreed upon in writing.</p></div></div><div class="accordion-item"><div class="accordion-header">Eastern Wisconsin Properties — $2M and Above</div><div class="accordion-content"><p>Explore currently active Eastern Wisconsin properties listed for <strong>$2 million or more</strong> using the link below:</p><p><a class="link" href="https://www.flexmls.com/link.html?1wnlt76xrog2,19,1" target="_blank">View MLS Listings — Eastern Wisconsin $2M+</a></p><p class="note">This link provides direct access to live MLS data. Availability and pricing are subject to change.</p></div></div><div class="accordion-item"><div class="accordion-header">Previous Listing for Subject Property</div><div class="accordion-content"><p>Access the most recent prior listing details for <strong>3225 Michigan Blvd</strong> at the link below:</p><p><a class="link" href="https://www.flexmls.com/link.html?1wnlt7g525ni,19,1" target="_blank">View Previous MLS Listing — 3225 Michigan Blvd</a></p><p class="note">This link leads to the historical MLS record for reference purposes.</p></div></div></div></section>
 
-        <section id="timeline" class="panel" tabindex="0">
-          <h2>Timeline</h2>
-          <div class="timeline" id="tl"></div>
-          <p class="note">This suggested schedule will guide us through the listing launch.</p>
-        </section>
-
-        <section id="sellers" class="panel" tabindex="0">
-          <h2>Task List — Jerry & Kim</h2>
-          <div class="list" id="sellerList"></div>
-        </section>
-
-        <section id="team" class="panel" tabindex="0">
-          <h2>Task List — Andy & Flavia</h2>
-          <div class="list" id="teamList"></div>
-        </section>
-
-        <section id="info" class="panel" tabindex="0">
-          <h2>Information</h2>
-          <div class="accordion" id="accordionInfo">
-            <div class="accordion-item">
-              <div class="accordion-header">Homesite Inspection Benefits</div>
-              <div class="accordion-content">
-                <p><strong>125 Day Warranty:</strong> Covers repairs to items found to be in good working condition at the time of inspection for 125 days.</p>
-                <p><strong>5 Year Platinum Roof Protection Plan:</strong> Protects against new roof leaks for five years after the inspection. After deductible, repair costs are covered up to $3,000.</p>
-                <p><strong>Mold Safe Guarantee:</strong> Covers remediation up to $2,000 for mold not present at inspection, discovered within 90 days.</p>
-                <p><strong>SewerGard Protection:</strong> Covers sewer and water line collapses up to $4,000 for 90 days after the inspection.</p>
-                <p class="note">Verify specific terms and eligibility directly with Homesite, Inc.</p>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <div class="accordion-header">Commission Structure</div>
-              <div class="accordion-content">
-                <p>Coldwell Banker Realty’s commission for the listing side is <strong>3.6% of the final sale price plus a $495 brokerage fee.</strong></p>
-                <p>Buyers who are represented by their own agent must <strong>specifically request</strong> any payment to their agent as part of the offer they submit. Any buyer-agent compensation, if offered, would be included within the total contract terms negotiated between buyer and seller.</p>
-                <p>This structure ensures that the seller’s obligations are clear and limited to the listing-side brokerage agreement unless otherwise agreed upon in writing.</p>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <div class="accordion-header">Eastern Wisconsin Properties — $2M and Above</div>
-              <div class="accordion-content">
-                <p>Explore currently active Eastern Wisconsin properties listed for <strong>$2 million or more</strong> using the link below:</p>
-                <p><a class="link" href="https://www.flexmls.com/link.html?1wnlt76xrog2,19,1" target="_blank">View MLS Listings — Eastern Wisconsin $2M+</a></p>
-                <p class="note">This link provides direct access to live MLS data. Availability and pricing are subject to change.</p>
-              </div>
-            </div>
-                      <div class="accordion-item">
-              <div class="accordion-header">Previous Listing for Subject Property</div>
-              <div class="accordion-content">
-                <p>Access the most recent prior listing details for <strong>3225 Michigan Blvd</strong> at the link below:</p>
-                <p><a class="link" href="https://www.flexmls.com/link.html?1wnlt7g525ni,19,1" target="_blank">View Previous MLS Listing — 3225 Michigan Blvd</a></p>
-                <p class="note">This link leads to the historical MLS record for reference purposes.</p>
-              </div>
-            </div>
+        <section id="purchase" class="panel" tabindex="0">
+          <h2>Next Property Purchase</h2>
+          <div class="accordion" id="accordionPurchase">
+            <div class="accordion-item active"><div class="accordion-header">4725 Westridge Dr, Brookfield, WI — Basics</div><div class="accordion-content"><ul style="margin:0;padding-left:18px;line-height:1.6"><li><strong>List price:</strong> $1,579,900</li><li><strong>Beds / Baths:</strong> 4 BD / 4.5 BA</li><li><strong>Living area:</strong> 4,450 sq ft</li><li><strong>Year built:</strong> 2025 (new construction)</li><li><strong>Lot size:</strong> ~0.65 acres</li><li><strong>Garage:</strong> 3-car attached</li><li><strong>Status:</strong> Active • <strong>MLS#</strong> 1938884</li></ul><p style="margin-top:10px">Quick links for current details and photos:</p><p><a class="link" href="https://www.zillow.com/homedetails/4725-Westridge-Dr-Brookfield-WI-53045/2054333838_zpid/" target="_blank">Zillow</a> · <a class="link" href="https://www.realtor.com/realestateandhomes-detail/4725-Westridge-Dr_Brookfield_WI_53045_M99637-33877" target="_blank">Realtor.com</a> · <a class="link" href="https://www.shorewest.com/WI/Waukesha/Brookfield/4725-Westridge-Dr-Brookfield-WI-53045/1938884-METRO" target="_blank">Broker page (Shorewest)</a></p><p class="note">Figures and availability are from live listing sources and may change; confirm before any decisions.</p></div></div>
+            <div class="accordion-item"><div class="accordion-header">4725 Westridge Dr – Builder / Seller Q&A Summary</div><div class="accordion-content"><h3>Inclusions and Equipment</h3><p><strong>Q:</strong> What’s included with the property? Are the additional refrigerators and A/V equipment part of the sale?<br><strong>A:</strong> All appliances can be included for the right price, including the A/V equipment (projector, screen, etc.).</p><h3>HOA and Restrictions</h3><p><strong>Q:</strong> What does the HOA cover, and what restrictions apply?<br><strong>A:</strong> The HOA covers maintenance of common grounds, including the entryway and areas around ponds and mailboxes. The architectural board must approve exterior changes such as landscaping or flagpoles. Additional plantings are generally fine but require approval. Flagpoles would likely be approved.</p><h3>Documentation and Offer Process</h3><p><strong>Q:</strong> When will the HOA and builder documents be provided?<br><strong>A:</strong> All documents (HOA, warranty, etc.) will be provided with the counter to an accepted offer. After acceptance, the buyer will have a walkthrough to create a punch list if needed.</p><h3>Warranties</h3><p><strong>Q:</strong> What warranty coverage is offered?<br><strong>A:</strong> There’s a 1-year bumper-to-bumper warranty and a 10-year structural warranty, which must be written into the offer.</p><h3>Construction and Neighborhood Activity</h3><p><strong>Q:</strong> What are the work-hour restrictions and how disruptive is ongoing construction?<br><strong>A:</strong> The City of Brookfield limits construction roughly to 7 a.m.–6 p.m., though crews are usually done by 5 p.m. and don’t work weekends. Noise hasn’t been a complaint.</p><h3>Landscaping and Property Maintenance</h3><p><strong>Q:</strong> Will the damaged sod be replaced?<br><strong>A:</strong> Yes, sod will be replaced in the spring if it doesn’t grow back before irrigation shutdown.</p><h3>Lot and Taxes</h3><p><strong>Q:</strong> What are the setbacks and property taxes?<br><strong>A:</strong> Side-yard setbacks are a minimum of 25 feet. The tax rate (mil rate) should be confirmed with the City of Brookfield.</p><h3>Outdoor Features</h3><p><strong>Q:</strong> What’s planned for the opening in the back patio?<br><strong>A:</strong> The square opening is designed for a fire pit, which will be installed soon.</p><h3>Closing Timeline</h3><p><strong>Q:</strong> What’s the soonest possible closing date?<br><strong>A:</strong> The builder can close in as little as 15 days after contingencies are met, allowing time to move out and professionally clean the home.</p></div></div>
+            <div class="accordion-item"><div class="accordion-header">Appliances & TVs — Add-on Options</div><div class="accordion-content"><p>These items are not listed on the MLS but may be included in the offer if desired.</p><h3>TVs</h3><ul style="margin:0;padding-left:18px;line-height:1.6"><li>Living room above the gas fireplace (facing the patio)</li><li>Master bedroom over the fireplace</li><li>Projector and screen in theater room</li><li>Behind the lower level bar</li><li>Lower level wall near the pool table</li></ul><h3 style="margin-top:16px">Appliances</h3><ul style="margin:0;padding-left:18px;line-height:1.6"><li>Microwave in lower level bar</li><li>Upper and lower level beverage refrigerators</li><li>Lower level 2-door refrigerator in the hallway</li></ul></div></div>
           </div>
         </section>
       </div>
     </div>
   </div>
-
   <script>
-    const showStart = '2025-11-01';
-
-    const questions = [
-      'When can showings start (we suggest November 1 if possible)',
-      'What would you like to include with the home? (appliances etc)',
-      'Is there anything we need to know about the trust that the home is in?',
-      'What price would you like to list the property at?'
-    ];
-
-    const sellers = [
-      'Provide a copy of the survey',
-      'Provide a list of improvements, repairs, and replacements since purchase, with approximate dates and costs',
-      'Provide a list of preferred contractors who have worked at the house (Plumber, Electrician, Pool Care, etc.) — be as thorough as possible',
-      'Declutter main living areas; store personal items',
-      'Deep clean kitchen & baths; polish fixtures',
-      'Confirm photography date and provide access'
-    ];
-
-    const team = [
-      'Schedule professional photos & media',
-      'Prepare MLS draft and disclosures packet',
-      'Write marketing copy and property page',
-      'Plan open house for November 2 (tentative)',
-      'Consult with Coldwell Banker Marketing team to pursue all possible angles for generating awareness of the listing'
-    ];
-
-    const $ = s => document.querySelector(s);
-    const $$ = s => Array.from(document.querySelectorAll(s));
-
-    function fmt(d){ const x=new Date(d+'T12:00:00'); return x.toLocaleDateString(undefined,{weekday:'short', month:'short', day:'numeric', year:'numeric'}); }
-
-    function render(){
-      const q = $('#qList'); q.innerHTML = '';
-      questions.forEach((t,i)=>{ const div = document.createElement('div'); div.className='item'; div.textContent = `${i+1}. ${t}`; q.appendChild(div); });
-
-      const s = $('#sellerList'); s.innerHTML='';
-      sellers.forEach((t,i)=>{ const el=document.createElement('div'); el.className='item'; el.textContent = `${i+1}. ${t}`; s.appendChild(el); });
-
-      const tm = $('#teamList'); tm.innerHTML='';
-      team.forEach((t,i)=>{ const el=document.createElement('div'); el.className='item'; el.textContent = `${i+1}. ${t}`; tm.appendChild(el); });
-
-      const plan = [
-        {d:'2025-10-24', t:'Professional photographs', tag:'Media'},
-        {d:'2025-10-30', t:'Listing enters MLS (Delayed Status)', tag:'MLS'},
-        {d:'2025-11-01', t:'Showings begin', tag:'Launch'},
-        {d:'2025-11-02', t:'Open House', tag:'Event'}
-      ];
-      const tl = $('#tl'); tl.innerHTML='';
-      plan.forEach(e=>{ const row=document.createElement('div'); row.className='ev'; row.innerHTML = `<div class="date">${fmt(e.d)}</div><div>${e.t}</div><div class="pill" style="margin-top:6px">${e.tag}</div>`; tl.appendChild(row); });
-    }
-
-    $$('.tab').forEach(b=> b.addEventListener('click', ()=>{
-      $$('.tab').forEach(x=>x.setAttribute('aria-selected','false'));
-      b.setAttribute('aria-selected','true');
-      const id=b.dataset.tab; $$('.panel').forEach(p=>p.classList.toggle('active', p.id===id));
-    }));
-
     document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const item = header.parentElement;
@@ -191,7 +58,15 @@
       });
     });
 
-    render();
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected','false'));
+        tab.setAttribute('aria-selected','true');
+        const id = tab.getAttribute('data-tab');
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+      });
+    });
   </script>
 </body>
 </html>
