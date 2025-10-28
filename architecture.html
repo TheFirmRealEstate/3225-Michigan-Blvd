@@ -36,7 +36,7 @@
     .sub{color:var(--muted); font-size:1rem; max-width:700px; margin:0 auto;}
 
     /* Accordion styles */
-    .accordion{margin-bottom:32px; border-radius:12px; overflow:hidden}
+    .accordion{margin-bottom:32px; border-radius:12px; overflow:visible}
     .accordion-item + .accordion-item{margin-top:12px}
     .accordion-button{
       display:flex;
@@ -66,6 +66,9 @@
       border-top:0;
       padding:0 18px 18px;
       background:rgba(255,255,255,.01);
+      /* closed by default and animate height changes */
+      max-height:0;
+      transition:max-height .28s ease;
     }
     .accordion-content{padding:12px 0; color:var(--ink)}
 
@@ -246,19 +249,18 @@
       if (!accordion) return;
 
       const items = Array.from(accordion.querySelectorAll('.accordion-item'));
-      // helper to close a panel
+
       function closeItem(item) {
         const button = item.querySelector('.accordion-button');
         const panel = item.querySelector('.accordion-panel');
         button.setAttribute('aria-expanded','false');
-        panel.style.maxHeight = null;
+        panel.style.maxHeight = '0px';
       }
-      // helper to open a panel (animate to its scroll height)
+
       function openItem(item) {
         const button = item.querySelector('.accordion-button');
         const panel = item.querySelector('.accordion-panel');
         button.setAttribute('aria-expanded','true');
-        // set maxHeight to scrollHeight for transition
         panel.style.maxHeight = panel.scrollHeight + 'px';
       }
 
@@ -266,27 +268,24 @@
       items.forEach((it, i) => {
         const panel = it.querySelector('.accordion-panel');
         const button = it.querySelector('.accordion-button');
+
         if (i === 0) {
           button.setAttribute('aria-expanded','true');
           panel.style.maxHeight = panel.scrollHeight + 'px';
         } else {
           button.setAttribute('aria-expanded','false');
-          panel.style.maxHeight = null;
+          panel.style.maxHeight = '0px';
         }
 
         button.addEventListener('click', () => {
           const isOpen = button.getAttribute('aria-expanded') === 'true';
           if (isOpen) {
-            // close current
             closeItem(it);
           } else {
-            // close all others first
             items.forEach(other => {
               if (other !== it) closeItem(other);
             });
-            // then open clicked
             openItem(it);
-            // scroll clicked header into view a bit on small screens for clarity
             if (window.innerWidth < 700) {
               setTimeout(() => {
                 button.scrollIntoView({behavior:'smooth', block:'start'});
@@ -295,13 +294,12 @@
           }
         });
 
-        // keyboard support: ENTER and SPACE toggle
+        // keyboard support: ENTER and SPACE toggle, arrow navigation
         button.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ' ) {
             e.preventDefault();
             button.click();
           }
-          // Up/Down arrow navigation
           if (e.key === 'ArrowDown') {
             e.preventDefault();
             const next = items[(i + 1) % items.length].querySelector('.accordion-button');
@@ -314,7 +312,7 @@
           }
         });
 
-        // make panel transitions smoother by updating maxHeight on resize
+        // adjust height on resize for any open panel
         window.addEventListener('resize', () => {
           if (button.getAttribute('aria-expanded') === 'true') {
             panel.style.maxHeight = panel.scrollHeight + 'px';
