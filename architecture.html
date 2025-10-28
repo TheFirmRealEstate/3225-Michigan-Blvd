@@ -12,7 +12,7 @@
       color:var(--ink); background:radial-gradient(1200px 600px at 10% 10%, #1e293b 0%, transparent 60%), linear-gradient(180deg,#0b1020,#0b1020 60%,#0b0f1b);
       line-height:1.6; font-size:clamp(16px,1.2vw+0.6rem,18px);}
     .wrap{max-width:960px; margin:0 auto; padding:32px 18px 80px;}
-    header{border-radius:20px; padding:28px; background:linear-gradient(120deg,rgba(96,165,250,.18),rgba(167,139,250,.14)); box-shadow:0 10px 25px rgba(0,0,0,.35); text-align:center; margin-bottom:36px;}
+    header{border-radius:20px; padding:28px; background:linear-gradient(120deg,rgba(96,165,250,.18),rgba(167,139,250,.14)); box-shadow:0 10px 25px rgba(0,0,0,.35); text-align:center; margin-bottom:36p[...]
     h1{font-size:clamp(1.8rem,3vw+1rem,2.6rem); margin-bottom:0.5rem;}
     .sub{color:var(--muted); font-size:1rem; max-width:700px; margin:0 auto;}
 
@@ -22,6 +22,10 @@
     figure{margin:20px 0; border-radius:16px; overflow:hidden; border:1px solid var(--border); box-shadow:0 4px 16px rgba(0,0,0,.3);}
     figure img{width:100%; display:block; height:auto;}
     figcaption{text-align:center; font-size:0.9rem; color:var(--muted); padding:8px 12px; background:rgba(255,255,255,.04);}
+
+    /* simple responsive gallery for figures that contain multiple images */
+    .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:8px; align-items:start;}
+    .gallery img{width:100%; height:auto; display:block; border-radius:8px;}
 
     footer{text-align:center; color:var(--muted); font-size:0.9rem; padding-top:24px; border-top:1px solid var(--border);}
 
@@ -37,60 +41,64 @@
 
     <section id="intro">
       <h2>Introduction – A Landmark on Racine’s Lakefront</h2>
-      <p>Perched above the shoreline of Lake Michigan, 3225 Michigan Blvd stands as one of Racine’s most architecturally distinctive private residences. Completed in the early 1930s, the home is a rare example of high-style Art Deco residential design in southeastern Wisconsin. With its streamlined geometry, horizontal emphasis, and decorative masonry, it reflects both the optimism and precision of an era fascinated with progress and modernity.</p>
-      <p>At a time when Racine’s economy was flourishing thanks to its industrial titans — J.I. Case, Western Publishing, and Modine — homes like this were symbols of achievement and creative ambition. 3225 Michigan Blvd was more than a home; it was a statement about what it meant to live beautifully in an age of innovation.</p>
+      <p>Perched above the shoreline of Lake Michigan, 3225 Michigan Blvd stands as one of Racine’s most architecturally distinctive private residences. Completed in the early 1930s, the home is a r[...]
+      <p>At a time when Racine’s economy was flourishing thanks to its industrial titans — J.I. Case, Western Publishing, and Modine — homes like this were symbols of achievement and creative am[...]
       <figure>
-        <img src="images/3225-lakefront-exterior.jpg" alt="Lakefront view of 3225 Michigan Blvd, Racine, WI" />
+        <img src="images/Image 8.jpg" alt="Lakefront view of 3225 Michigan Blvd, Racine, WI" />
         <figcaption>Lakefront view showcasing the home’s symmetry and horizontal lines.</figcaption>
       </figure>
     </section>
 
     <section id="architect">
       <h2>The Architect – Edwin J. Krause and Modernism in the Midwest</h2>
-      <p>The architect, <strong>Edwin J. Krause</strong>, was among the most forward-thinking designers in Racine and Milwaukee during the interwar years. His work bridges the gap between the ornamental exuberance of Art Deco and the sleek efficiency of the emerging Moderne style. Krause’s architectural vocabulary emphasized geometric motifs, smooth surfaces, and the integration of technology and craftsmanship — qualities clearly on display in the Michigan Blvd home.</p>
-      <p>Like many Midwestern modernists, Krause drew inspiration from European movements such as Bauhaus, merging beauty with utility. In this home, he achieved a timeless composition: elegant yet durable, artistic yet livable.</p>
+      <p>The architect, <strong>Edwin J. Krause</strong>, was among the most forward-thinking designers in Racine and Milwaukee during the interwar years. His work bridges the gap between the ornament[...]
+      <p>Like many Midwestern modernists, Krause drew inspiration from European movements such as Bauhaus, merging beauty with utility. In this home, he achieved a timeless composition: elegant yet du[...]
       <figure>
-        <img src="images/3225-detail-facade.jpg" alt="Detail of brick and window geometry, 3225 Michigan Blvd" />
+        <img src="images/Image 9.jpg" alt="Detail of brick and window geometry, 3225 Michigan Blvd" />
         <figcaption>Art Deco detailing by architect Edwin J. Krause, emphasizing precision and symmetry.</figcaption>
       </figure>
     </section>
 
     <section id="commission">
       <h2>The Commission – Elmer Voigt and Western Publishing’s Influence</h2>
-      <p>The home’s original owner, <strong>Elmer Voigt</strong>, was a senior executive at <strong>Western Printing and Lithographing Company</strong> — later known worldwide for publishing <em>Little Golden Books</em>. Western was a cornerstone of Racine’s creative economy, merging artistry and industrial printing on a massive scale.</p>
-      <p>Voigt’s personal connection to printing likely inspired the home’s most unique feature — printed or lithographically decorated stone tiles in the lower level. These tiles may have been an early experiment applying Western’s lithographic techniques to architectural materials, turning the home itself into a living showcase of innovation.</p>
+      <p>The home’s original owner, <strong>Elmer Voigt</strong>, was a senior executive at <strong>Western Printing and Lithographing Company</strong> — later known worldwide for publishing <em>L[...]
+      <p>Voigt’s personal connection to printing likely inspired the home’s most unique feature — printed or lithographically decorated stone tiles in the lower level. These tiles may have been [...]
       <figure>
-        <img src="images/3225-printed-tiles.jpg" alt="Printed stone tiles in the lower level of 3225 Michigan Blvd" />
+        <img src="images/Image (6).jpg" alt="Printed stone tiles in the lower level of 3225 Michigan Blvd" />
         <figcaption>Rare printed stone tiles possibly influenced by Western Publishing’s lithographic expertise.</figcaption>
       </figure>
     </section>
 
     <section id="features">
       <h2>Architectural Features and Innovations</h2>
-      <p>The residence combines form and function in a way that feels remarkably contemporary. The exterior’s symmetrical façade is softened by rounded corners and horizontal banding that echo the streamlined designs of ships and automobiles — popular motifs in the Art Deco era. Inside, the open plan encourages light, flow, and comfort, showing how progressive the home was for its time.</p>
-      <p>Custom cabinetry, ornamental metalwork, and advanced mechanical systems reflect both craftsmanship and innovation. From the curved staircase to the fireplace detailing, every element was carefully designed to balance grace and engineering precision.</p>
+      <p>The residence combines form and function in a way that feels remarkably contemporary. The exterior’s symmetrical façade is softened by rounded corners and horizontal banding that echo the [...]
+      <p>Custom cabinetry, ornamental metalwork, and advanced mechanical systems reflect both craftsmanship and innovation. From the curved staircase to the fireplace detailing, every element was care[...]
       <figure>
-        <img src="images/3225-staircase.jpg" alt="Curved staircase detail inside 3225 Michigan Blvd" />
+        <div class="gallery">
+          <img src="images/Image 13.jpg" alt="Curved staircase detail inside 3225 Michigan Blvd - view 1" />
+          <img src="images/Image 11.jpg" alt="Curved staircase detail inside 3225 Michigan Blvd - view 2" />
+          <img src="images/Image 12.jpg" alt="Curved staircase detail inside 3225 Michigan Blvd - view 3" />
+        </div>
         <figcaption>Elegant interior details showcase the home’s craftsmanship and Deco sensibility.</figcaption>
       </figure>
     </section>
 
     <section id="context">
       <h2>Context – Racine’s Golden Age of Industry and Design</h2>
-      <p>In the 1930s, Racine was a city of invention. Industrial leaders like Western Publishing, J.I. Case, and Modine Manufacturing shaped not just local industry but also local identity. Executives and designers alike believed that good design represented good citizenship — that beauty, efficiency, and progress were civic values.</p>
-      <p>Within this context, 3225 Michigan Blvd stands as a residential echo of Racine’s industrial landmarks, such as Frank Lloyd Wright’s <em>Wingspread</em> and the <em>SC Johnson Administration Building</em>. It captures the city’s drive to innovate — on factory floors and in living rooms alike.</p>
+      <p>In the 1930s, Racine was a city of invention. Industrial leaders like Western Publishing, J.I. Case, and Modine Manufacturing shaped not just local industry but also local identity. Executive[...]
+      <p>Within this context, 3225 Michigan Blvd stands as a residential echo of Racine’s industrial landmarks, such as Frank Lloyd Wright’s <em>Wingspread</em> and the <em>SC Johnson Administrati[...]
       <figure>
-        <img src="images/3225-aerial-context.jpg" alt="Aerial view showing 3225 Michigan Blvd and its lakefront setting" />
+        <img src="images/Image 14.jpg" alt="Aerial view showing 3225 Michigan Blvd and its lakefront setting" />
         <figcaption>The home’s lakefront location situates it within Racine’s broader landscape of industrial-era design.</figcaption>
       </figure>
     </section>
 
     <section id="legacy">
       <h2>Preservation and Legacy</h2>
-      <p>Today, 3225 Michigan Blvd remains a living piece of Racine’s architectural legacy. Each generation of owners has respected its craftsmanship, preserving its defining Art Deco details while gently updating it for modern life. The printed tiles, glass block, and geometric flourishes continue to tell a story of ingenuity and artistry that began nearly a century ago.</p>
+      <p>Today, 3225 Michigan Blvd remains a living piece of Racine’s architectural legacy. Each generation of owners has respected its craftsmanship, preserving its defining Art Deco details while [...]
       <p>As both a home and a work of art, it stands as a tribute to Racine’s enduring spirit — where creativity, craftsmanship, and industry meet in timeless harmony.</p>
       <figure>
-        <img src="images/3225-current-exterior.jpg" alt="Modern photo of 3225 Michigan Blvd in evening light" />
+        <img src="images/Image 8.jpg" alt="Modern photo of 3225 Michigan Blvd in evening light" />
         <figcaption>Modern-day image highlighting the home’s preserved Art Deco beauty and craftsmanship.</figcaption>
       </figure>
     </section>
