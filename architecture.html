@@ -8,28 +8,96 @@
     :root{
       --bg:#0f172a; --ink:#f1f5f9; --muted:#94a3b8; --brand:#60a5fa; --brand2:#a78bfa; --border:rgba(148,163,184,.2);
     }
-    body{margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
-      color:var(--ink); background:radial-gradient(1200px 600px at 10% 10%, #1e293b 0%, transparent 60%), linear-gradient(180deg,#0b1020,#0b1020 60%,#0b0f1b);
-      line-height:1.6; font-size:clamp(16px,1.2vw+0.6rem,18px);}
+
+    /* Page layout */
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Noto Sans",Helvetica,Arial;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% 10%, #1e293b 0%, transparent 60%),
+        linear-gradient(180deg,#0b1020,#0b1020 60%,#0b0f1b);
+      line-height:1.6;
+      font-size:clamp(16px,1.2vw + 0.6rem,18px);
+    }
+
     .wrap{max-width:960px; margin:0 auto; padding:32px 18px 80px;}
-    header{border-radius:20px; padding:28px; background:linear-gradient(120deg,rgba(96,165,250,.18),rgba(167,139,250,.14)); box-shadow:0 10px 25px rgba(0,0,0,.35); text-align:center; margin-bottom:36p[...]
-    h1{font-size:clamp(1.8rem,3vw+1rem,2.6rem); margin-bottom:0.5rem;}
+
+    header{
+      border-radius:20px;
+      padding:28px;
+      background:linear-gradient(120deg,rgba(96,165,250,.18),rgba(167,139,250,.14));
+      box-shadow:0 10px 25px rgba(0,0,0,.35);
+      text-align:center;
+      margin-bottom:36px;
+    }
+    h1{font-size:clamp(1.8rem,3vw + 1rem,2.6rem); margin-bottom:0.5rem;}
     .sub{color:var(--muted); font-size:1rem; max-width:700px; margin:0 auto;}
 
-    section{margin-bottom:64px;}
-    h2{font-size:1.4rem; border-left:4px solid var(--brand); padding-left:10px; margin-bottom:0.5rem; color:var(--brand2);}
-    p{margin-top:0.5rem;}
-    figure{margin:20px 0; border-radius:16px; overflow:hidden; border:1px solid var(--border); box-shadow:0 4px 16px rgba(0,0,0,.3);}
-    figure img{width:100%; display:block; height:auto;}
-    figcaption{text-align:center; font-size:0.9rem; color:var(--muted); padding:8px 12px; background:rgba(255,255,255,.04);}
+    /* Accordion styles */
+    .accordion{margin-bottom:32px; border-radius:12px; overflow:hidden}
+    .accordion-item + .accordion-item{margin-top:12px}
+    .accordion-button{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      width:100%;
+      padding:14px 18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+      border:1px solid var(--border);
+      color:var(--ink);
+      font-size:1.05rem;
+      text-align:left;
+      cursor:pointer;
+      border-radius:10px;
+      transition:background .18s ease, box-shadow .18s ease;
+    }
+    .accordion-button:hover{box-shadow:0 6px 18px rgba(0,0,0,.35)}
+    .accordion-button[aria-expanded="true"]{background:linear-gradient(90deg, rgba(96,165,250,.06), rgba(167,139,250,.04)); border-color:rgba(148,163,184,.28)}
 
-    /* simple responsive gallery for figures that contain multiple images */
-    .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:8px; align-items:start;}
-    .gallery img{width:100%; height:auto; display:block; border-radius:8px;}
+    .accordion-button h2{margin:0; font-size:1.1rem; color:var(--brand2)}
+    .accordion-button .chev{transition:transform .2s ease; transform-origin:center;}
+    .accordion-button[aria-expanded="true"] .chev{transform:rotate(90deg)}
+
+    .accordion-panel{
+      overflow:hidden;
+      border:1px solid var(--border);
+      border-top:0;
+      padding:0 18px 18px;
+      background:rgba(255,255,255,.01);
+    }
+    .accordion-content{padding:12px 0; color:var(--ink)}
+
+    p{margin-top:0.5rem; color:var(--muted)}
+
+    /* Figures and image sizing (standardized viewing size) */
+    figure{margin:20px 0; border-radius:12px; overflow:visible; border:1px solid var(--border); box-shadow:0 4px 16px rgba(0,0,0,.3); background:rgba(255,255,255,.01)}
+    figcaption{text-align:center; font-size:0.9rem; color:var(--muted); padding:8px 12px; background:rgba(255,255,255,.02); border-top:1px solid rgba(255,255,255,.02)}
+
+    /* Fixed-height image wrapper so images appear consistent on mobile and desktop */
+    .img-wrap{height:260px; overflow:hidden; border-radius:8px 8px 0 0;}
+    .img-wrap img{width:100%; height:100%; object-fit:cover; display:block;}
+
+    /* Gallery grid for multi-image figure */
+    .gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:8px;}
+    .gallery .img-wrap{height:180px; border-radius:8px;}
 
     footer{text-align:center; color:var(--muted); font-size:0.9rem; padding-top:24px; border-top:1px solid var(--border);}
 
-    @media (max-width:640px){header{padding:20px;} h2{font-size:1.25rem;} figure{margin:16px 0;}}
+    /* Responsive adjustments */
+    @media (max-width:900px){
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .gallery .img-wrap{height:200px}
+    }
+    @media (max-width:640px){
+      header{padding:20px;}
+      .accordion-button{padding:12px 14px}
+      figure{margin:16px 0}
+      .img-wrap{height:220px}
+      .gallery{grid-template-columns:repeat(1,1fr)}
+      .gallery .img-wrap{height:220px}
+    }
   </style>
 </head>
 <body>
@@ -39,73 +107,221 @@
       <div class="sub">Exploring the Art Deco heritage, architectural innovation, and enduring legacy of Racine’s lakefront landmark.</div>
     </header>
 
-    <section id="intro">
-      <h2>Introduction – A Landmark on Racine’s Lakefront</h2>
-      <p>Perched above the shoreline of Lake Michigan, 3225 Michigan Blvd stands as one of Racine’s most architecturally distinctive private residences. Completed in the early 1930s, the home is a r[...]
-      <p>At a time when Racine’s economy was flourishing thanks to its industrial titans — J.I. Case, Western Publishing, and Modine — homes like this were symbols of achievement and creative am[...]
-      <figure>
-        <img src="Image 8.jpg" alt="Lakefront view of 3225 Michigan Blvd, Racine, WI" />
-        <figcaption>Lakefront view showcasing the home’s symmetry and horizontal lines.</figcaption>
-      </figure>
-    </section>
+    <!-- Accordion container. Only one section may be open at a time. -->
+    <nav class="accordion" role="tablist" aria-label="Page sections">
 
-    <section id="architect">
-      <h2>The Architect – Edwin J. Krause and Modernism in the Midwest</h2>
-      <p>The architect, <strong>Edwin J. Krause</strong>, was among the most forward-thinking designers in Racine and Milwaukee during the interwar years. His work bridges the gap between the ornament[...]
-      <p>Like many Midwestern modernists, Krause drew inspiration from European movements such as Bauhaus, merging beauty with utility. In this home, he achieved a timeless composition: elegant yet du[...]
-      <figure>
-        <img src="Image 9.jpg" alt="Detail of brick and window geometry, 3225 Michigan Blvd" />
-        <figcaption>Art Deco detailing by architect Edwin J. Krause, emphasizing precision and symmetry.</figcaption>
-      </figure>
-    </section>
+      <article class="accordion-item" id="section-intro">
+        <button class="accordion-button" aria-expanded="true" aria-controls="panel-intro" id="tab-intro" role="tab">
+          <h2>Introduction – A Landmark on Racine’s Lakefront</h2>
+          <span class="chev">▶</span>
+        </button>
+        <div class="accordion-panel" id="panel-intro" role="tabpanel" aria-labelledby="tab-intro">
+          <div class="accordion-content">
+            <p>Perched above the shoreline of Lake Michigan, 3225 Michigan Blvd stands as one of Racine’s most architecturally distinctive private residences. Completed in the early 1930s, the home embodies the optimism and design ambition of the interwar Midwest: a carefully balanced composition of horizontal lines, rounded corners, and refined decorative detail that together express an elegant Art Deco modernism.</p>
+            <p>Built for a prosperous local executive, the house was conceived to take full advantage of its lakefront siting. Large windows frame broad views across the water while terraces and low parapets reinforce a strong relationship between the building and the shoreline. The design intentionally balances monumentality with domestic scale — a hallmark of Edwin J. Krause’s residential work.</p>
 
-    <section id="commission">
-      <h2>The Commission – Elmer Voigt and Western Publishing’s Influence</h2>
-      <p>The home’s original owner, <strong>Elmer Voigt</strong>, was a senior executive at <strong>Western Printing and Lithographing Company</strong> — later known worldwide for publishing <em>L[...]
-      <p>Voigt’s personal connection to printing likely inspired the home’s most unique feature — printed or lithographically decorated stone tiles in the lower level. These tiles may have been [...]
-      <figure>
-        <img src="Image (6).jpg" alt="Printed stone tiles in the lower level of 3225 Michigan Blvd" />
-        <figcaption>Rare printed stone tiles possibly influenced by Western Publishing’s lithographic expertise.</figcaption>
-      </figure>
-    </section>
-
-    <section id="features">
-      <h2>Architectural Features and Innovations</h2>
-      <p>The residence combines form and function in a way that feels remarkably contemporary. The exterior’s symmetrical façade is softened by rounded corners and horizontal banding that echo the [...]
-      <p>Custom cabinetry, ornamental metalwork, and advanced mechanical systems reflect both craftsmanship and innovation. From the curved staircase to the fireplace detailing, every element was care[...]
-      <figure>
-        <div class="gallery">
-          <img src="Image 13.jpg" alt="Curved staircase detail inside 3225 Michigan Blvd - view 1" />
-          <img src="Image 11.jpg" alt="Curved staircase detail inside 3225 Michigan Blvd - view 2" />
-          <img src="Image 12.jpg" alt="Curved staircase detail inside 3225 Michigan Blvd - view 3" />
+            <figure>
+              <div class="img-wrap">
+                <img src="Image 8.jpg" alt="Lakefront view of 3225 Michigan Blvd, Racine, WI" />
+              </div>
+              <figcaption>Lakefront view showcasing the home’s symmetry and horizontal lines.</figcaption>
+            </figure>
+          </div>
         </div>
-        <figcaption>Elegant interior details showcase the home’s craftsmanship and Deco sensibility.</figcaption>
-      </figure>
-    </section>
+      </article>
 
-    <section id="context">
-      <h2>Context – Racine’s Golden Age of Industry and Design</h2>
-      <p>In the 1930s, Racine was a city of invention. Industrial leaders like Western Publishing, J.I. Case, and Modine Manufacturing shaped not just local industry but also local identity. Executive[...]
-      <p>Within this context, 3225 Michigan Blvd stands as a residential echo of Racine’s industrial landmarks, such as Frank Lloyd Wright’s <em>Wingspread</em> and the <em>SC Johnson Administrati[...]
-      <figure>
-        <img src="Image 14.jpg" alt="Aerial view showing 3225 Michigan Blvd and its lakefront setting" />
-        <figcaption>The home’s lakefront location situates it within Racine’s broader landscape of industrial-era design.</figcaption>
-      </figure>
-    </section>
+      <article class="accordion-item" id="section-architect">
+        <button class="accordion-button" aria-expanded="false" aria-controls="panel-architect" id="tab-architect" role="tab">
+          <h2>The Architect – Edwin J. Krause and Modernism in the Midwest</h2>
+          <span class="chev">▶</span>
+        </button>
+        <div class="accordion-panel" id="panel-architect" role="tabpanel" aria-labelledby="tab-architect">
+          <div class="accordion-content">
+            <p>Edwin J. Krause was a regional architect whose work bridged traditional craftsmanship and the emerging modernist vocabulary of the early twentieth century. In Racine and Milwaukee, Krause’s commissions ranged from commercial storefronts to private residences, always emphasizing clarity of form and attention to detail.</p>
+            <p>At 3225 Michigan Blvd, Krause employed the Art Deco emphasis on geometry and rhythm without resorting to excessive ornament. The façade’s brickwork, metal windows, and carefully proportioned bays demonstrate an economy of means paired with precise craftsmanship — a modern approach intended to convey both refinement and durability.</p>
 
-    <section id="legacy">
-      <h2>Preservation and Legacy</h2>
-      <p>Today, 3225 Michigan Blvd remains a living piece of Racine’s architectural legacy. Each generation of owners has respected its craftsmanship, preserving its defining Art Deco details while [...]
-      <p>As both a home and a work of art, it stands as a tribute to Racine’s enduring spirit — where creativity, craftsmanship, and industry meet in timeless harmony.</p>
-      <figure>
-        <img src="Image 8.jpg" alt="Modern photo of 3225 Michigan Blvd in evening light" />
-        <figcaption>Modern-day image highlighting the home’s preserved Art Deco beauty and craftsmanship.</figcaption>
-      </figure>
-    </section>
+            <figure>
+              <div class="img-wrap">
+                <img src="Image 9.jpg" alt="Detail of brick and window geometry, 3225 Michigan Blvd" />
+              </div>
+              <figcaption>Art Deco detailing by architect Edwin J. Krause, emphasizing precision and symmetry.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item" id="section-commission">
+        <button class="accordion-button" aria-expanded="false" aria-controls="panel-commission" id="tab-commission" role="tab">
+          <h2>The Commission – Elmer Voigt and Western Publishing’s Influence</h2>
+          <span class="chev">▶</span>
+        </button>
+        <div class="accordion-panel" id="panel-commission" role="tabpanel" aria-labelledby="tab-commission">
+          <div class="accordion-content">
+            <p>The house was commissioned by Elmer Voigt, a senior executive at Western Printing and Lithographing Company. Voigt’s professional ties to the printing and lithographic industries are visible in subtle ways throughout the home — from the careful patterning of stonework to decorative motifs that recall printed surfaces.</p>
+            <p>One of the residence’s most unusual features is a set of printed or lithographically decorated stone tiles in the lower level. These decorative tiles blend technical skill with aesthetic restraint and may well reflect a cross-pollination of ideas between Voigt’s professional life and the domestic environment he commissioned.</p>
+
+            <figure>
+              <div class="img-wrap">
+                <img src="Image (6).jpg" alt="Printed stone tiles in the lower level of 3225 Michigan Blvd" />
+              </div>
+              <figcaption>Rare printed stone tiles possibly influenced by Western Publishing’s lithographic expertise.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item" id="section-features">
+        <button class="accordion-button" aria-expanded="false" aria-controls="panel-features" id="tab-features" role="tab">
+          <h2>Architectural Features and Innovations</h2>
+          <span class="chev">▶</span>
+        </button>
+        <div class="accordion-panel" id="panel-features" role="tabpanel" aria-labelledby="tab-features">
+          <div class="accordion-content">
+            <p>The residence blends functional planning with decorative restraint: horizontal banding and rounded corners soften the façade, while bespoke metalwork, cabinetry, and integrated mechanical systems demonstrate an early commitment to modern living standards.</p>
+            <p>Interior spaces were planned for comfort and gracious entertaining. Careful material choices — from tile and terrazzo to brass fittings — underscore an approach that values both durability and refined detailing. The house’s staircase is a particularly striking example of form meeting craft: a flowing, curvilinear composition that anchors the interior circulation.</p>
+
+            <figure>
+              <div class="gallery" aria-hidden="false">
+                <div class="img-wrap"><img src="Image 13.jpg" alt="Curved staircase detail inside 3225 Michigan Blvd - view 1" /></div>
+                <div class="img-wrap"><img src="Image 11.jpg" alt="Curved staircase detail inside 3225 Michigan Blvd - view 2" /></div>
+                <div class="img-wrap"><img src="Image 12.jpg" alt="Curved staircase detail inside 3225 Michigan Blvd - view 3" /></div>
+              </div>
+              <figcaption>Elegant interior details showcase the home’s craftsmanship and Deco sensibility.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item" id="section-context">
+        <button class="accordion-button" aria-expanded="false" aria-controls="panel-context" id="tab-context" role="tab">
+          <h2>Context – Racine’s Golden Age of Industry and Design</h2>
+          <span class="chev">▶</span>
+        </button>
+        <div class="accordion-panel" id="panel-context" role="tabpanel" aria-labelledby="tab-context">
+          <div class="accordion-content">
+            <p>In the 1930s Racine was a city of invention and industry. Companies such as Western Publishing, J.I. Case, and Modine Manufacturing helped create a robust local economy that supported sophisticated residential architecture and civic patronage.</p>
+            <p>3225 Michigan Blvd participates in this local narrative: it is both a personal residence and a statement about the city’s confidence in design and craftsmanship. Nearby landmarks — including works by Frank Lloyd Wright and other regional architects — provide a broader context in which this house can be read as part of the city’s architectural lineage.</p>
+
+            <figure>
+              <div class="img-wrap">
+                <img src="Image 14.jpg" alt="Aerial view showing 3225 Michigan Blvd and its lakefront setting" />
+              </div>
+              <figcaption>The home’s lakefront location situates it within Racine’s broader landscape of industrial-era design.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article class="accordion-item" id="section-legacy">
+        <button class="accordion-button" aria-expanded="false" aria-controls="panel-legacy" id="tab-legacy" role="tab">
+          <h2>Preservation and Legacy</h2>
+          <span class="chev">▶</span>
+        </button>
+        <div class="accordion-panel" id="panel-legacy" role="tabpanel" aria-labelledby="tab-legacy">
+          <div class="accordion-content">
+            <p>Today, 3225 Michigan Blvd remains a living piece of Racine’s architectural legacy. Successive owners have respected the original design while updating systems and finishes where necessary to meet contemporary expectations without compromising historic character.</p>
+            <p>Preservation efforts have focused on retaining original fabric where possible: brick and masonry repairs have been completed using compatible materials, windows have been carefully restored, and interior features such as tile and metalwork have been conserved. The home continues to function as a private residence while also serving as an example of regional Art Deco residential design.</p>
+
+            <figure>
+              <div class="img-wrap">
+                <img src="Image 8.jpg" alt="Modern photo of 3225 Michigan Blvd in evening light" />
+              </div>
+              <figcaption>Modern-day image highlighting the home’s preserved Art Deco beauty and craftsmanship.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+    </nav>
 
     <footer>
       © 2025 The Firm – Your Real Estate Concierge. All rights reserved.
     </footer>
   </div>
+
+  <script>
+    // Accordion behavior: only one panel open at a time
+    (function () {
+      const accordion = document.querySelector('.accordion');
+      if (!accordion) return;
+
+      const items = Array.from(accordion.querySelectorAll('.accordion-item'));
+      // helper to close a panel
+      function closeItem(item) {
+        const button = item.querySelector('.accordion-button');
+        const panel = item.querySelector('.accordion-panel');
+        button.setAttribute('aria-expanded','false');
+        panel.style.maxHeight = null;
+      }
+      // helper to open a panel (animate to its scroll height)
+      function openItem(item) {
+        const button = item.querySelector('.accordion-button');
+        const panel = item.querySelector('.accordion-panel');
+        button.setAttribute('aria-expanded','true');
+        // set maxHeight to scrollHeight for transition
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+
+      // initialize: collapse all except first
+      items.forEach((it, i) => {
+        const panel = it.querySelector('.accordion-panel');
+        const button = it.querySelector('.accordion-button');
+        if (i === 0) {
+          button.setAttribute('aria-expanded','true');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        } else {
+          button.setAttribute('aria-expanded','false');
+          panel.style.maxHeight = null;
+        }
+
+        button.addEventListener('click', () => {
+          const isOpen = button.getAttribute('aria-expanded') === 'true';
+          if (isOpen) {
+            // close current
+            closeItem(it);
+          } else {
+            // close all others first
+            items.forEach(other => {
+              if (other !== it) closeItem(other);
+            });
+            // then open clicked
+            openItem(it);
+            // scroll clicked header into view a bit on small screens for clarity
+            if (window.innerWidth < 700) {
+              setTimeout(() => {
+                button.scrollIntoView({behavior:'smooth', block:'start'});
+              }, 250);
+            }
+          }
+        });
+
+        // keyboard support: ENTER and SPACE toggle
+        button.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ' ) {
+            e.preventDefault();
+            button.click();
+          }
+          // Up/Down arrow navigation
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            const next = items[(i + 1) % items.length].querySelector('.accordion-button');
+            next.focus();
+          }
+          if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            const prev = items[(i - 1 + items.length) % items.length].querySelector('.accordion-button');
+            prev.focus();
+          }
+        });
+
+        // make panel transitions smoother by updating maxHeight on resize
+        window.addEventListener('resize', () => {
+          if (button.getAttribute('aria-expanded') === 'true') {
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
