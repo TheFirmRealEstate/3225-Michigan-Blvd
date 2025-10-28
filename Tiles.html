@@ -39,24 +39,26 @@
     .chev{flex:0 0 auto; width:18px; height:18px; display:inline-block; position:relative}
     .chev::before{content:""; position:absolute; inset:0; border:2px solid var(--muted); border-left-color:transparent; border-top-color:transparent; transform:rotate(45deg); transition:transform .25s ease}
     .item[aria-expanded="true"] .chev::before{transform:rotate(225deg)}
-    .panel{max-height:0; overflow:hidden; transition:max-height .3s ease; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));}
+    .panel{max-height:0; overflow:hidden; transition:max-height .35s ease; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));}
     .panel-inner{padding:0 18px 18px; color:var(--ink)}
     .panel-inner p{margin:0 0 12px; color:#e8edf5}
     .muted{color:var(--muted)}
     .accent{background:linear-gradient(90deg,var(--brand),var(--brand2)); -webkit-background-clip:text; background-clip:text; color:transparent}
 
     /* Media styles for accordion panels */
-    .panel-media{margin:12px 0 0}
-    .panel-media img{width:100%; display:block; border-radius:12px; object-fit:cover; max-height:380px}
+    .panel-media{margin:12px 0 0; display:flex; flex-direction:column; align-items:stretch}
+    /* Allow images to scale down to fit while preserving full image (no cropping) */
+    .panel-media img{width:100%; height:auto; display:block; border-radius:12px; object-fit:contain; max-height:60vh; background:#071028; padding:6px; box-sizing:border-box}
     .panel-media .caption{font-size:.9rem; color:var(--muted); margin-top:8px}
 
-    /* Gallery (used in last panel) */
+    /* Gallery: show full image (contain) and let height adjust up to a maximum */
     .gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:12px}
-    .gallery img{width:100%; height:160px; object-fit:cover; border-radius:10px; display:block}
+    .gallery img{width:100%; height:auto; object-fit:contain; max-height:30vh; border-radius:10px; display:block; background:#071028; padding:6px; box-sizing:border-box}
 
     @media (max-width:520px){
       .gallery{grid-template-columns:1fr; }
-      .panel-media img{max-height:260px}
+      .panel-media img{max-height:40vh}
+      .gallery img{max-height:22vh}
     }
 
     @media print{
@@ -208,12 +210,31 @@
             closeAll(item);
             item.setAttribute('aria-expanded','true');
             btn.setAttribute('aria-expanded','true');
-            // animate open
-            panel.style.maxHeight = panel.scrollHeight + 'px';
+            // animate open and account for images loading / reflow
+            const openPanel = () => {
+              panel.style.maxHeight = panel.scrollHeight + 'px';
+            };
+            openPanel();
+            // Recompute after next frame and after a short delay (handles image load/layout)
+            requestAnimationFrame(openPanel);
+            setTimeout(openPanel, 300);
           }
         });
 
         // Allow keyboard open via Enter/Space automatically as it's a button
+      });
+
+      // Recompute panel height when images load (so the panel expands to fully contain them)
+      document.querySelectorAll('.panel-media img, .gallery img').forEach(img => {
+        img.addEventListener('load', () => {
+          const panel = img.closest('.panel');
+          if (!panel) return;
+          // If its parent item is open, recompute height
+          const item = panel.parentElement;
+          if (item && item.getAttribute('aria-expanded') === 'true') {
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+          }
+        });
       });
 
       // Optionally open the first item by default
