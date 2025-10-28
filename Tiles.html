@@ -45,20 +45,49 @@
     .muted{color:var(--muted)}
     .accent{background:linear-gradient(90deg,var(--brand),var(--brand2)); -webkit-background-clip:text; background-clip:text; color:transparent}
 
-    /* Media styles for accordion panels */
-    .panel-media{margin:12px 0 0; display:flex; flex-direction:column; align-items:stretch}
-    /* Allow images to scale down to fit while preserving full image (no cropping) */
-    .panel-media img{width:100%; height:auto; display:block; border-radius:12px; object-fit:contain; max-height:60vh; background:#071028; padding:6px; box-sizing:border-box}
-    .panel-media .caption{font-size:.9rem; color:var(--muted); margin-top:8px}
+    /* Image container */
+    .panel-media{margin:12px 0 0; display:flex; flex-direction:column; align-items:center}
+    /* Ensure images never overflow the container and always show entirely:
+       - width:auto keeps aspect ratio
+       - max-width:100% prevents overflow on narrow viewports
+       - max-height caps vertical size so large images scale down
+       - margin centers the image horizontally */
+    .panel-media img{
+      display:block;
+      margin:0 auto;
+      width:auto;
+      max-width:100%;
+      height:auto;
+      max-height:60vh;        /* restrict visual height, change as needed */
+      border-radius:12px;
+      background:#071028;
+      padding:6px;
+      box-sizing:border-box;
+      -webkit-user-select:none;
+      user-select:none;
+    }
+    .panel-media .caption{font-size:.9rem; color:var(--muted); margin-top:8px; width:100%; text-align:left}
 
-    /* Gallery: show full image (contain) and let height adjust up to a maximum */
+    /* Gallery: same behavior but smaller max height */
     .gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:12px}
-    .gallery img{width:100%; height:auto; object-fit:contain; max-height:30vh; border-radius:10px; display:block; background:#071028; padding:6px; box-sizing:border-box}
+    .gallery img{
+      display:block;
+      margin:0 auto;
+      width:auto;
+      max-width:100%;
+      height:auto;
+      max-height:30vh;
+      border-radius:10px;
+      background:#071028;
+      padding:6px;
+      box-sizing:border-box;
+    }
 
     @media (max-width:520px){
-      .gallery{grid-template-columns:1fr; }
+      .gallery{grid-template-columns:1fr;}
       .panel-media img{max-height:40vh}
       .gallery img{max-height:22vh}
+      .panel-media .caption{text-align:left}
     }
 
     @media print{
@@ -215,13 +244,10 @@
               panel.style.maxHeight = panel.scrollHeight + 'px';
             };
             openPanel();
-            // Recompute after next frame and after a short delay (handles image load/layout)
             requestAnimationFrame(openPanel);
             setTimeout(openPanel, 300);
           }
         });
-
-        // Allow keyboard open via Enter/Space automatically as it's a button
       });
 
       // Recompute panel height when images load (so the panel expands to fully contain them)
@@ -229,7 +255,6 @@
         img.addEventListener('load', () => {
           const panel = img.closest('.panel');
           if (!panel) return;
-          // If its parent item is open, recompute height
           const item = panel.parentElement;
           if (item && item.getAttribute('aria-expanded') === 'true') {
             panel.style.maxHeight = panel.scrollHeight + 'px';
