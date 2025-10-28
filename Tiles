@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3225 Michigan Blvd – Printed Stone Tiles</title>
+  <style>
+    :root{
+      --bg:#0f172a; --card:#0b1226; --ink:#e5e7eb; --muted:#9ca3af; --brand:#60a5fa; --brand2:#a78bfa;
+      --border:rgba(148,163,184,.25);
+    }
+    html,body{height:100%}
+    body{margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial; color:var(--ink);
+      background: radial-gradient(1200px 600px at 10% 10%, #1e293b 0%, transparent 60%), radial-gradient(900px 500px at 90% 20%, #111827 0%, transparent 60%), linear-gradient(180deg, #0b1020, #0b1020 60%, #0b0f1b);
+    }
+    .wrap{max-width:980px; margin:0 auto; padding:32px 18px 80px}
+    header{position:relative; overflow:hidden; border-radius:20px; padding:28px; margin:12px 0 28px; background:linear-gradient(120deg, rgba(96,165,250,.18), rgba(167,139,250,.14)); outline:1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.04); backdrop-filter: blur(4px);}    
+    .eyebrow{letter-spacing:.12em; text-transform:uppercase; font-size:.78rem; color:var(--muted)}
+    h1{margin:.25rem 0 .5rem; font-weight:800; font-size:clamp(1.4rem, 3vw + .8rem, 2.2rem)}
+    .sub{color:var(--muted); font-size:.98rem}
+
+    /* Accordion */
+    .accordion{background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,.35)}
+    .item + .item{border-top:1px solid var(--border)}
+
+    .trigger{width:100%; text-align:left; padding:18px 18px; background:transparent; color:var(--ink); border:0; display:flex; align-items:center; justify-content:space-between; gap:12px; cursor:pointer; font-weight:800; letter-spacing:.01em}
+    .trigger:focus{outline:2px solid #93c5fd; outline-offset:-2px; border-radius:0}
+
+    .chev{flex:0 0 auto; width:18px; height:18px; display:inline-block; position:relative}
+    .chev::before{content:""; position:absolute; inset:0; border:2px solid var(--muted); border-left-color:transparent; border-top-color:transparent; transform:rotate(45deg); transition:transform .25s ease, border-color .25s ease}
+    .item[aria-expanded="true"] .chev::before{transform:rotate(225deg)}
+
+    .panel{max-height:0; overflow:hidden; transition:max-height .3s ease; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));}
+    .panel-inner{padding:0 18px 18px; color:var(--ink)}
+    .panel-inner p{margin:0 0 12px; color:#e8edf5}
+    .muted{color:var(--muted)}
+    .accent{background:linear-gradient(90deg,var(--brand),var(--brand2)); -webkit-background-clip:text; background-clip:text; color:transparent}
+
+    @media print{body{background:#fff; color:#111} header{background:#f7f7fb; box-shadow:none} .accordion{background:#fff; box-shadow:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">3225 Michigan Blvd</div>
+      <h1>The Printed Stone Tiles</h1>
+      <div class="sub">A quick tour of the mysterious lower‑level tiles, their Art Deco heritage, and the Western Publishing connection.</div>
+    </header>
+
+    <section class="accordion" id="tiles-accordion">
+      <!-- Item 1 -->
+      <div class="item" aria-expanded="false">
+        <button class="trigger" aria-controls="p1" aria-expanded="false">
+          <span>What Are These?</span>
+          <span class="chev" aria-hidden="true"></span>
+        </button>
+        <div class="panel" id="p1" role="region" aria-labelledby="t1">
+          <div class="panel-inner">
+            <p>Step into the lower level and the floor immediately steals the show. At first glance it reads as natural stone; look closer and you’ll notice the veining and textures are <span class="accent">printed</span>. These tiles likely use a lithographic or enamel printing process applied to a stone, terrazzo, or quarry‑tile base—an innovative technique that blends art with engineering.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="item" aria-expanded="false">
+        <button class="trigger" aria-controls="p2" aria-expanded="false">
+          <span>The Western Publishing Connection</span>
+          <span class="chev" aria-hidden="true"></span>
+        </button>
+        <div class="panel" id="p2" role="region">
+          <div class="panel-inner">
+            <p>3225 Michigan Blvd was commissioned by <strong>Elmer Voigt</strong>, an executive at <strong>Western Printing and Lithographing Company</strong>—the famed creators behind <em>Golden Books</em>. It’s a fitting twist: a printing innovator’s home showcasing printing artistry underfoot.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="item" aria-expanded="false">
+        <button class="trigger" aria-controls="p3" aria-expanded="false">
+          <span>Art Deco Craftsmanship</span>
+          <span class="chev" aria-hidden="true"></span>
+        </button>
+        <div class="panel" id="p3" role="region">
+          <div class="panel-inner">
+            <p>Designed in the early 1930s, the home reflects Racine’s Art Deco optimism—crisp geometry, modern materials, and exquisite detail. The printed tiles echo that spirit: elegant, experimental, and meticulously crafted.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="item" aria-expanded="false">
+        <button class="trigger" aria-controls="p4" aria-expanded="false">
+          <span>A House That Tells a Story</span>
+          <span class="chev" aria-hidden="true"></span>
+        </button>
+        <div class="panel" id="p4" role="region">
+          <div class="panel-inner">
+            <p>Every surface here speaks to Racine’s golden age of invention. These tiles connect the home to the city’s creative industries—where publishing, machinery, and design cross‑pollinated in wonderfully unexpected ways.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="item" aria-expanded="false">
+        <button class="trigger" aria-controls="p5" aria-expanded="false">
+          <span>Preserving a Piece of History</span>
+          <span class="chev" aria-hidden="true"></span>
+        </button>
+        <div class="panel" id="p5" role="region">
+          <div class="panel-inner">
+            <p>Treat the tiles as you would any historic surface: mild cleaners, soft pads, and periodic sealing when appropriate. Their significance is more than aesthetic—they are a tangible link between the home’s design and Racine’s industrial artistry.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Single-open accordion behavior with ARIA updates
+    (function(){
+      const acc = document.getElementById('tiles-accordion');
+      const items = Array.from(acc.querySelectorAll('.item'));
+
+      function closeAll(except){
+        items.forEach(item => {
+          if(item === except) return;
+          const btn = item.querySelector('.trigger');
+          const panel = item.querySelector('.panel');
+          item.setAttribute('aria-expanded','false');
+          btn.setAttribute('aria-expanded','false');
+          panel.style.maxHeight = 0;
+        });
+      }
+
+      items.forEach((item, idx) => {
+        const btn = item.querySelector('.trigger');
+        const panel = item.querySelector('.panel');
+        btn.id = 't' + (idx+1);
+        btn.addEventListener('click', () => {
+          const isOpen = item.getAttribute('aria-expanded') === 'true';
+          if(isOpen){
+            item.setAttribute('aria-expanded','false');
+            btn.setAttribute('aria-expanded','false');
+            panel.style.maxHeight = 0;
+          } else {
+            closeAll(item);
+            item.setAttribute('aria-expanded','true');
+            btn.setAttribute('aria-expanded','true');
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+          }
+        });
+        // Allow keyboard open via Enter/Space automatically as it's a button
+      });
+
+      // Optionally open the first item by default
+      if(items[0]){
+        const btn = items[0].querySelector('.trigger');
+        btn.click();
+      }
+    })();
+  </script>
+</body>
+</html>
