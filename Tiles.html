@@ -10,11 +10,23 @@
       --border:rgba(148,163,184,.25);
     }
     html,body{height:100%}
-    body{margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial; color:var(--ink);
-      background: radial-gradient(1200px 600px at 10% 10%, #1e293b 0%, transparent 60%), radial-gradient(900px 500px at 90% 20%, #111827 0%, transparent 60%), linear-gradient(180deg, #0b1020, #0b1020 60%, #0b0f1b);
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", Helvetica, Arial;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% 10%, #1e293b 0%, transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, #111827 0%, transparent 60%),
+        linear-gradient(180deg, #0b1020, #0b1020 60%, #071028 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
     .wrap{max-width:980px; margin:0 auto; padding:32px 18px 80px}
-    header{position:relative; overflow:hidden; border-radius:20px; padding:28px; margin:12px 0 28px; background:linear-gradient(120deg, rgba(96,165,250,.18), rgba(167,139,250,.14)); outline:1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.04); backdrop-filter: blur(4px);}    
+    header{position:relative; overflow:hidden; border-radius:20px; padding:28px; margin:12px 0 28px;
+      background:linear-gradient(120deg, rgba(96,165,250,.18), rgba(167,139,250,.14));
+      outline:1px solid rgba(255,255,255,.03);
+      box-shadow:0 8px 30px rgba(2,6,23,.6);
+    }
     .eyebrow{letter-spacing:.12em; text-transform:uppercase; font-size:.78rem; color:var(--muted)}
     h1{margin:.25rem 0 .5rem; font-weight:800; font-size:clamp(1.4rem, 3vw + .8rem, 2.2rem)}
     .sub{color:var(--muted); font-size:.98rem}
@@ -22,21 +34,37 @@
     /* Accordion */
     .accordion{background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,.35)}
     .item + .item{border-top:1px solid var(--border)}
-
-    .trigger{width:100%; text-align:left; padding:18px 18px; background:transparent; color:var(--ink); border:0; display:flex; align-items:center; justify-content:space-between; gap:12px; cursor:pointer; font-weight:800; letter-spacing:.01em}
+    .trigger{width:100%; text-align:left; padding:18px; background:transparent; color:var(--ink); border:0; display:flex; align-items:center; justify-content:space-between; gap:12px; cursor:pointer; font-weight:600; font-size:1rem}
     .trigger:focus{outline:2px solid #93c5fd; outline-offset:-2px; border-radius:0}
-
     .chev{flex:0 0 auto; width:18px; height:18px; display:inline-block; position:relative}
-    .chev::before{content:""; position:absolute; inset:0; border:2px solid var(--muted); border-left-color:transparent; border-top-color:transparent; transform:rotate(45deg); transition:transform .25s ease, border-color .25s ease}
+    .chev::before{content:""; position:absolute; inset:0; border:2px solid var(--muted); border-left-color:transparent; border-top-color:transparent; transform:rotate(45deg); transition:transform .25s ease}
     .item[aria-expanded="true"] .chev::before{transform:rotate(225deg)}
-
     .panel{max-height:0; overflow:hidden; transition:max-height .3s ease; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));}
     .panel-inner{padding:0 18px 18px; color:var(--ink)}
     .panel-inner p{margin:0 0 12px; color:#e8edf5}
     .muted{color:var(--muted)}
     .accent{background:linear-gradient(90deg,var(--brand),var(--brand2)); -webkit-background-clip:text; background-clip:text; color:transparent}
 
-    @media print{body{background:#fff; color:#111} header{background:#f7f7fb; box-shadow:none} .accordion{background:#fff; box-shadow:none}}
+    /* Media styles for accordion panels */
+    .panel-media{margin:12px 0 0}
+    .panel-media img{width:100%; display:block; border-radius:12px; object-fit:cover; max-height:380px}
+    .panel-media .caption{font-size:.9rem; color:var(--muted); margin-top:8px}
+
+    /* Gallery (used in last panel) */
+    .gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:12px}
+    .gallery img{width:100%; height:160px; object-fit:cover; border-radius:10px; display:block}
+
+    @media (max-width:520px){
+      .gallery{grid-template-columns:1fr; }
+      .panel-media img{max-height:260px}
+    }
+
+    @media print{
+      body{background:#fff; color:#111}
+      header{background:#f7f7fb; box-shadow:none}
+      .accordion{background:#fff; box-shadow:none}
+      .panel-media img, .gallery img{max-height:none; height:auto}
+    }
   </style>
 </head>
 <body>
@@ -57,6 +85,12 @@
         <div class="panel" id="p1" role="region" aria-labelledby="t1">
           <div class="panel-inner">
             <p>Step into the lower level and the floor immediately steals the show. At first glance it reads as natural stone; look closer and you’ll notice the veining and textures are <span class="accent">printed</span>. These tiles likely use a lithographic or enamel printing process applied to a stone, terrazzo, or quarry‑tile base—an innovative technique that blends art with engineering.</p>
+
+            <!-- Single image -->
+            <div class="panel-media">
+              <img src="Image%20(4).jpg" alt="Close-up of printed stone tile pattern" loading="lazy" />
+              <div class="caption">Close-up showing printed veining and subtle color variation.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -67,9 +101,14 @@
           <span>The Western Publishing Connection</span>
           <span class="chev" aria-hidden="true"></span>
         </button>
-        <div class="panel" id="p2" role="region">
+        <div class="panel" id="p2" role="region" aria-labelledby="t2">
           <div class="panel-inner">
-            <p>3225 Michigan Blvd was commissioned by <strong>Elmer Voigt</strong>, an executive at <strong>Western Printing and Lithographing Company</strong>—the famed creators behind <em>Golden Books</em>. It’s a fitting twist: a printing innovator’s home showcasing printing artistry underfoot.</p>
+            <p>3225 Michigan Blvd was commissioned by <strong>Elmer Voigt</strong>, an executive at <strong>Western Printing and Lithographing Company</strong>—the famed creators behind popular children's books and printed ephemera in the region.</p>
+
+            <div class="panel-media">
+              <img src="Image%20(5).jpg" alt="Tile field near stair with Art Deco layout" loading="lazy" />
+              <div class="caption">Tile field near the stair—note the subtle layout and repeat pattern.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -80,9 +119,14 @@
           <span>Art Deco Craftsmanship</span>
           <span class="chev" aria-hidden="true"></span>
         </button>
-        <div class="panel" id="p3" role="region">
+        <div class="panel" id="p3" role="region" aria-labelledby="t3">
           <div class="panel-inner">
-            <p>Designed in the early 1930s, the home reflects Racine’s Art Deco optimism—crisp geometry, modern materials, and exquisite detail. The printed tiles echo that spirit: elegant, experimental, and meticulously crafted.</p>
+            <p>Designed in the early 1930s, the home reflects Racine’s Art Deco optimism—crisp geometry, modern materials, and exquisite detail. The printed tiles echo that spirit: elegant, experimental, and well executed.</p>
+
+            <div class="panel-media">
+              <img src="Image%20(6).jpg" alt="Tile edge detail and grout lines" loading="lazy" />
+              <div class="caption">Edge detail and grout—installation quality that has held up remarkably well.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -93,9 +137,14 @@
           <span>A House That Tells a Story</span>
           <span class="chev" aria-hidden="true"></span>
         </button>
-        <div class="panel" id="p4" role="region">
+        <div class="panel" id="p4" role="region" aria-labelledby="t4">
           <div class="panel-inner">
-            <p>Every surface here speaks to Racine’s golden age of invention. These tiles connect the home to the city’s creative industries—where publishing, machinery, and design cross‑pollinated in wonderfully unexpected ways.</p>
+            <p>Every surface here speaks to Racine’s golden age of invention. These tiles connect the home to the city’s creative industries—where publishing, machinery, and design cross‑pollinated.</p>
+
+            <div class="panel-media">
+              <img src="Image%20(7).jpg" alt="Tiles across the lower-level floor showing overall pattern" loading="lazy" />
+              <div class="caption">View across the lower-level floor—scale and rhythm of the pattern in context.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -106,9 +155,21 @@
           <span>Preserving a Piece of History</span>
           <span class="chev" aria-hidden="true"></span>
         </button>
-        <div class="panel" id="p5" role="region">
+        <div class="panel" id="p5" role="region" aria-labelledby="t5">
           <div class="panel-inner">
             <p>Treat the tiles as you would any historic surface: mild cleaners, soft pads, and periodic sealing when appropriate. Their significance is more than aesthetic—they are a tangible link between the home’s design and Racine’s industrial artistry.</p>
+
+            <!-- Gallery showing all 4 images -->
+            <div class="gallery" aria-hidden="false">
+              <img src="Image%20(4).jpg" alt="Close-up of printed stone tile pattern" loading="lazy" />
+              <img src="Image%20(5).jpg" alt="Tile field near stair with Art Deco layout" loading="lazy" />
+              <img src="Image%20(6).jpg" alt="Tile edge detail and grout lines" loading="lazy" />
+              <img src="Image%20(7).jpg" alt="Tiles across the lower-level floor showing overall pattern" loading="lazy" />
+            </div>
+
+            <div class="panel-media">
+              <div class="caption">A small selection of views using the repository images.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -135,6 +196,7 @@
       items.forEach((item, idx) => {
         const btn = item.querySelector('.trigger');
         const panel = item.querySelector('.panel');
+        // ensure button has id for aria-labelledby on the panel
         btn.id = 't' + (idx+1);
         btn.addEventListener('click', () => {
           const isOpen = item.getAttribute('aria-expanded') === 'true';
@@ -146,9 +208,11 @@
             closeAll(item);
             item.setAttribute('aria-expanded','true');
             btn.setAttribute('aria-expanded','true');
+            // animate open
             panel.style.maxHeight = panel.scrollHeight + 'px';
           }
         });
+
         // Allow keyboard open via Enter/Space automatically as it's a button
       });
 
